@@ -1,0 +1,36 @@
+
+#!/bin/bash
+
+CASH_VESION="0.0.1"
+
+#1
+function usage {
+ cat <<EOM
+Usage: $(basename "$0") [OPTION]...
+ -a No1
+ -b No2
+ -v show version
+ -h display help
+EOM
+
+  exit 2
+  }
+
+
+#2
+while getopts abvh: optKey; do
+  case "$optKey" in
+    a)
+      echo "あいうえお"
+      ;;
+    b)
+      echo "かきくけこ"
+      ;;
+    v)
+      echo "$CASH_VESION"
+      ;;
+    '-h'|'--help'|* )
+      usage
+      ;;
+  esac
+done
